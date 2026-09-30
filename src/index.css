@@ -1,0 +1,132 @@
+@import "tailwindcss";
+
+@theme {
+  --color-night: #05060f;
+  --color-navy: #0b1030;
+  --color-magenta: #ff2fb3;
+  --color-cyan: #22e4ff;
+  --color-violet: #8b5cf6;
+  --color-ink: #e8ecff;
+  --color-muted: #8a91b8;
+
+  /* suit-tech: taken straight from the hero's 3D art */
+  --color-void: #050507;
+  --color-graphite: #0c0c12;
+  --color-metal: #17171d;
+  --color-neon: #ff2d4b;
+  --color-volt: #2f6bff;
+  --color-silk: #c9ccd6;
+
+  --font-hero: "Chakra Petch", "Inter", system-ui, sans-serif;
+  --font-display: "Chakra Petch", system-ui, sans-serif;
+  --font-body: "Inter", system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, monospace;
+}
+
+html {
+  background: #050507;
+}
+
+body {
+  font-family: var(--font-body);
+  color: #e6e7ee;
+  background: #050507;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+::selection {
+  background: #ff2d4b;
+  color: #e6e7ee;
+}
+
+.page-bg {
+  background-color: #050507;
+}
+
+.night {
+  background: transparent;
+}
+
+/* No backdrop-filter anywhere — re-blurring on every scroll frame causes lag. */
+.glass {
+  background: rgba(12, 12, 18, 0.9);
+  border: 1px solid rgba(201, 204, 214, 0.14);
+}
+
+.gradient-text {
+  background: linear-gradient(90deg, #ff2d4b, #2f6bff);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.text-glow-cyan {
+  text-shadow: 0 0 18px rgba(47, 107, 255, 0.55);
+}
+
+/* ================= suit-tech kit ================= */
+
+/* HUD caption: graphite plate, neon edge on the left */
+.comic-caption {
+  background: rgba(12, 12, 18, 0.9);
+  color: #e6e7ee;
+  border: 1px solid rgba(201, 204, 214, 0.14);
+  border-left: 2px solid #ff2d4b;
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  line-height: 1.4;
+}
+
+/* HUD button: neon outline, glows on hover */
+.comic-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6rem;
+  min-height: 44px;
+  padding: 0 1.4rem;
+  background: rgba(255, 45, 75, 0.08);
+  color: #e6e7ee;
+  border: 1px solid #ff2d4b;
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  transition: background-color 0.25s ease, box-shadow 0.25s ease;
+}
+.comic-btn:hover {
+  background: rgba(255, 45, 75, 0.2);
+  box-shadow: 0 0 22px rgba(255, 45, 75, 0.35);
+}
+.comic-btn:active {
+  background: rgba(255, 45, 75, 0.3);
+}
+
+/* soft light pools (formerly halftones) */
+.halftone-red {
+  background: radial-gradient(circle, rgba(255, 45, 75, 0.35), transparent 65%);
+}
+.halftone-blue {
+  background: radial-gradient(circle, rgba(47, 107, 255, 0.35), transparent 65%);
+}
+
+/* faint radar rings (formerly speed lines) */
+.speed-lines {
+  background: repeating-radial-gradient(
+    circle at 50% 50%,
+    rgba(201, 204, 214, 0.05) 0 1px,
+    transparent 1px 90px
+  );
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}
